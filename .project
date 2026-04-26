@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Adventure</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>characters.csv</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/data/characters.csv</locationURI>
+		</link>
+		<link>
+			<name>items.csv</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/data/items.csv</locationURI>
+		</link>
+		<link>
+			<name>map.csv</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/data/map.csv</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>
