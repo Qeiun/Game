@@ -43,6 +43,7 @@ public abstract class Character
 		{
 			if(p[0].isHere(p[x]) && p[x].combative)
 			{
+				System.out.println(p[x].name + " is attacking ");
 				if(p[x].rollForInitiative())
 				{
 					p[x].attack(here, p[0]);
@@ -98,10 +99,18 @@ public abstract class Character
 	
 	protected void killMe(MapBlock here)
 	{
+		dropAll(here);
 		moveable = false;
 		combative = false;
 		name = "Body of " + name;
-		//dropAll(here); //loop through all inventory and remove - add to "here"
+	}
+
+	protected void dropAll(MapBlock here)
+	{
+		while(inventory.size() > 0)
+		{
+			here.addItem(inventory.remove(0));
+		}
 	}
 	
 	protected static void moveNPCs(Character[] profile,Map m)

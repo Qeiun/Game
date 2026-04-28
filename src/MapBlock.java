@@ -11,8 +11,8 @@ public class MapBlock
 	private int E;
 	private int W;
 	
-	public String yesMsg = "";
-	public String noMsg = "";
+	public String yesMsg = "NA";
+	public String noMsg = "You can't go that way.";
 	
 	ArrayList<Item> itemsHere = new ArrayList<Item>();
 	
@@ -52,7 +52,10 @@ public class MapBlock
 			}	
 			else if (c.hasItem(N))
 			{
-				System.out.println(yesMsg);
+				if(!yesMsg.equalsIgnoreCase("NA"))
+				{
+					System.out.println(yesMsg);
+				}
 				return true;	
 			}
 			else
@@ -66,7 +69,10 @@ public class MapBlock
 			}	
 			else if (c.hasItem(S))
 			{
-				System.out.println(yesMsg);
+				if(!yesMsg.equalsIgnoreCase("NA"))
+				{
+					System.out.println(yesMsg);
+				}
 				return true;	
 			}
 			else
@@ -80,7 +86,10 @@ public class MapBlock
 			}	
 			else if (c.hasItem(E))
 			{
-				System.out.println(yesMsg);
+				if(!yesMsg.equalsIgnoreCase("NA"))
+				{
+					System.out.println(yesMsg);
+				}
 				return true;	
 			}
 			else
@@ -94,7 +103,10 @@ public class MapBlock
 			}	
 			else if (c.hasItem(W))
 			{
-				System.out.println(yesMsg);
+				if(!yesMsg.equalsIgnoreCase("NA"))
+				{
+					System.out.println(yesMsg);
+				}
 				return true;	
 			}
 			else
@@ -162,7 +174,7 @@ public class MapBlock
 				return itemsHere.remove(x);
 			}
 		}
-		System.out.println("There is no" + i + "here.");
+		System.out.println("There is no " + i + " here.");
 		return null;
 	}
 	

@@ -1,13 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-
 public class Adventure //implements ActionListener
 {
 
@@ -22,16 +12,20 @@ public class Adventure //implements ActionListener
 		String mapFile = "../data/map.csv";
 		String charFile = "../data/characters.csv";
 		String itemFile = "../data/items.csv";
+		String winFile = "../data/win.csv";
 		
 		Map map = new Map(maxX,maxY,mapFile);
 		Character[] profile = new Character[numChars];
+		WinTracker winTracker = new WinTracker(winFile);
 		
 		System.out.println(map);
 		
 		//System.out.println(MapBlock.count);
 		
+		//takes newly made character array and initializes it with the characters in the characters.csv file
 		Character.initChars(profile, charFile);
 		
+		//loads items from the items.csv file into the map
 		Items.loadItems(itemFile, map, profile);
 		//starting positions
 		//int xpos = 0;
@@ -50,9 +44,13 @@ public class Adventure //implements ActionListener
 		
 		while(playing) {
 			playing = player.move(profile, map); //did we die or win???
+			if(playing && winTracker.checkWin(player))
+			{
+				playing = false;
+			}
 		}
 		
-		Character.initChars(profile,charFile);
+		//Character.initChars(profile,charFile);
 		
 		System.out.println("Game Over");
 		

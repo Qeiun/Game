@@ -38,24 +38,31 @@ public class Map
 			
 			while((line = br.readLine()) != null)
 			{
-				data = line.split(splitBy);
-				
-				int xpos = Integer.parseInt(data[0]);
-				int ypos = Integer.parseInt(data[1]);
-				String title = data[2];
-				String description = data[3];
-				int n = Integer.parseInt(data[4]);
-				int s = Integer.parseInt(data[5]);
-				int e = Integer.parseInt(data[6]);
-				int w = Integer.parseInt(data[7]);
-				
-				String yes = "";
-				String no = "";
-				
-				if(data.length > 8)
+				data = line.split(splitBy, 10);
+				if(data.length < 8)
 				{
-					yes = data[8];
-					no = data[9];	
+					continue;
+				}
+				
+				int xpos = Integer.parseInt(data[0].trim());
+				int ypos = Integer.parseInt(data[1].trim());
+				String title = data[2].trim();
+				String description = data[3].trim();
+				int n = Integer.parseInt(data[4].trim());
+				int s = Integer.parseInt(data[5].trim());
+				int e = Integer.parseInt(data[6].trim());
+				int w = Integer.parseInt(data[7].trim());
+				
+				String yes = "NA";
+				String no = "You can't go that way.";
+				
+				if(data.length > 8 && data[8] != null && data[8].trim().length() > 0)
+				{
+					yes = data[8].trim();
+				}
+				if(data.length > 9 && data[9] != null && data[9].trim().length() > 0)
+				{
+					no = data[9].trim();	
 				}
 				
 				map[xpos][ypos] = new MapBlock(title, description, n, s, e, w, yes, no);

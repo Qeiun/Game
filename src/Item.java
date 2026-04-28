@@ -34,6 +34,21 @@ public class Item
 	{
 		return name;
 	}
+
+	public int getOffensive()
+	{
+		return offensive;
+	}
+
+	public int getDefensive()
+	{
+		return defensive;
+	}
+
+	public double getValue()
+	{
+		return value;
+	}
 	
 	@Override
 	public String toString()
